@@ -12,6 +12,8 @@ import OwnerDashboard from './Components/Owner/OwnerDashboard';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [language, setLanguage] = useState('en');
+  const [user, setUser] = useState(null); 
+  
 
   return (
     <Router>
@@ -26,6 +28,8 @@ function App() {
                 toggleLanguage={() =>
                   setLanguage(language === 'en' ? 'ar' : 'en')
                 }
+                user={user}
+                setUser={setUser}
               />
               <Hero language={language} />
 
@@ -34,8 +38,7 @@ function App() {
 
               {/* Products Section */}
               <Products setIsLoading={setIsLoading} language={language} />
-
-              <OrderForm language={language} />
+              <OrderForm language={language} user={user} />
             </div>
           }
         />

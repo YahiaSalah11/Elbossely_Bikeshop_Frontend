@@ -5,6 +5,7 @@ import API_URL from '../../config';
 const OrderForm = ({
 
   language,
+  user,
 }) => {
 
   const [newOrUsed, setNewOrUsed] = useState(''); // New or Used Bikes
@@ -29,8 +30,8 @@ const OrderForm = ({
   const [sliderIndexes, setSliderIndexes] = useState({});
 
 
-  const [clientName, setClientName] = useState('');
-  const [clientPhone, setClientPhone] = useState('');
+  const [clientName, setClientName] = useState(user ? (user.username) : '');
+  const [clientPhone, setClientPhone] = useState(user ? (user.phonenumber) : '');
 
   const [choosenBikeId, setChoosenBikeId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -100,6 +101,18 @@ const OrderForm = ({
       setYearOfManufacture('');
     }
   }, [bikeModel]);
+
+
+// Auto-fill client info if user is logged in
+  useEffect(() => {
+    if (user) {
+      setClientName(user.username);
+      setClientPhone(user.phonenumber);
+    } else {
+      setClientName('');
+      setClientPhone('');
+    }
+  }, [user]);
 
   // ✅ Search Bikes Handler
   const handleSearch = async () => {
@@ -375,12 +388,10 @@ const handleSubmitOrder = async (e) => {
         )}
 
 
-
-
         {/* Client Info */}
         <label>
           {language === 'en' ? 'Your Name:' : 'اسمك:'}
-          <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} required />
+          <input type="text" placeholder={clientName} value={clientName} onChange={(e) => setClientName(e.target.value)} required />
         </label>
 
         <label>
