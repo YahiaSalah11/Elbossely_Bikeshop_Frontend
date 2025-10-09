@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import API_URL from '../../config';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 const FeaturedBikes = ({ setIsLoading, language }) => {
   const [selectedFeaturedBikes, setSelectedFeaturedBikes] = useState([]);
@@ -45,13 +47,17 @@ const FeaturedBikes = ({ setIsLoading, language }) => {
         {selectedFeaturedBikes.slice(0, 3).map((bike) => (
           <div key={bike._id} className="featured-card">
             <div className="slider-container">
-              <button onClick={() => handlePrev(bike._id, bike.pictures.length)}>&lt;</button>
+              <button className="nav-btn prev" onClick={() => handlePrev(bike._id, bike.pictures.length)}>
+                <i className="fas fa-chevron-left"></i>
+              </button>             
               <img
                 src={`${API_URL}/${bike.pictures[imageIndexes[bike._id]]}`} // ✅ prepend backend URL
                 alt={bike.name}
                 className="bike-image"
               />
-              <button onClick={() => handleNext(bike._id, bike.pictures.length)}>&gt;</button>
+              <button className="nav-btn next" onClick={() => handleNext(bike._id, bike.pictures.length)}>
+                <i className="fas fa-chevron-right"></i>
+              </button>
             </div>
             <div className="bike-details">
               <h3>{bike.name}</h3>

@@ -406,6 +406,6 @@ const handleSubmitOrder = async (e) => {
       </form>
     </section>
   );
-};
+};  
 
 export default OrderForm;

@@ -1,9 +1,28 @@
+
+:root {
+  --primary-color: #af16b7;  /* dark blue */
+  --primary-shade1: #94089B;
+  --primary-shade2: #5c0561be;
+  --primary-tint: #FDECFE ;
+
+  --secondary-color: #B3DEC1; /* light green */
+  --secondary-shade: #55B475;
+  --secondary-tint: #E3F3E8;
+
+  --tertiary-color: #DC1867; /* vibrant red */
+  --tertiary-shade: #810E3C;
+  --tertiary-tint: #EF6CA0;
+  
+  --modal-overlay-bg: rgba(13, 27, 42, 0.8); /* dark overlay for modals */
+}
+
+
 /* General Page Styling */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77); /* dark stylish gradient */
-  color: white;
+  background: linear-gradient(135deg, var(--primary-tint ), var(--primary-shade2)); /* dark stylish gradient */
+  color: var(--primary-color);
   text-align: center;
 }
 /* Enable smooth scroll globally */
@@ -19,7 +38,7 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0px;
-  background: rgba(0, 0, 0, 0.8);
+  background:var(--primary-shade2); /* dark stylish gradient */
   position: fixed;
   top: 0;
   left: 0;
@@ -54,7 +73,7 @@ html {
 .navBar a {
   margin: 0 20px;
   text-decoration: none;
-  color: white;
+  color: var(--secondary-color);
   font-weight: 500;
   font-size: 18px;
   position: relative;
@@ -73,8 +92,8 @@ html {
 /* General Button Style */
 .nav-button {
   background: none;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid var(--secondary-tint);
+  color: var(--secondary-color);
   padding: 8px 15px;
   font-size: 16px;
   border-radius: 8px;
@@ -86,8 +105,8 @@ html {
 
 /* Hover */
 .nav-button:hover {
-  background: white;
-  color: #0f2c46;
+  background: var(--secondary-tint);
+  color: var(--primary-shade1);
 }
 
 
@@ -118,13 +137,13 @@ html {
 
 /* ===== Login Card Box ===== */
 .login-card {
-  background: linear-gradient(135deg, #1b263b, #0d1b2a); /* match site gradient */
+  background: var(--primary-tint); /* match site gradient */
   padding: 30px;
   border-radius: 12px;
   width: 350px;
   max-width: 90%;
   text-align: center;
-  color: white;
+  color: var(--primary-color);
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.6);
   animation: fadeInUp 0.4s ease;
 }
@@ -157,36 +176,38 @@ html {
   border: none;
   font-size: 16px;
   outline: none;
-  background: #415a77;
-  color: white;
+  background: var(--primary-shade1);
+  color: var(--primary-tint);
   transition: 0.3s ease;
 }
 
 .login-card input::placeholder {
-  color: #cfd8dc;
+  color: var(--primary-tint);
 }
 
+
+
 .login-card input:focus {
-  background: #778da9;
+  background: var(--primary-shade2);
 }
 
 /* Login button */
 .login-card button.login-btn {
   width: 100%;
   padding: 12px;
-  background: #e63946;
+  background: var(--tertiary-color);
   border: none;
   border-radius: 8px;
   font-size: 18px;
   font-weight: bold;
-  color: white;
+  color: var(--primary-tint);
   cursor: pointer;
   margin-top: 10px;
   transition: 0.3s ease;
 }
 
 .login-card button.login-btn:hover {
-  background: #ff6b6b;
+  background: var(--tertiary-shade);
 }
 
 /* Cancel button */
@@ -194,14 +215,14 @@ html {
   margin-top: 15px;
   background: none;
   border: none;
-  color: #a8dadc;
+  color: var(--tertiary-tint);
   font-size: 14px;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .login-card button.cancel-btn:hover {
-  color: #f1faee;
+  color: var(--tertiary-shade);
 }
 
 
@@ -235,7 +256,7 @@ html {
   justify-content: space-between; /* space between text & image */
   align-items: center;
   padding: 0 10%; /* add side padding */
-  color: white;
+  color: var(--tertiary-color);
   position: relative;
 }
 
@@ -251,7 +272,7 @@ html {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 30px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: 2px 2px 4px var(--tertiary-tint);
   animation: fadeInDown 1s ease forwards;
 }
 
@@ -263,17 +284,17 @@ html {
 
 .hero-text a {
   padding: 12px 25px;
-  border: 2px solid #fff;
+  border: 2px solid var(--tertiary-shade);
   border-radius: 30px;
-  color: #fff;
+  color: var(--tertiary-color);
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
 .hero-text a:hover {
-  background: #fff;
-  color: #0d1b2a;
+  background: var(--tertiary-color);
+  color: var(--tertiary-shade);
   transform: scale(1.05);
 }
 
@@ -288,7 +309,7 @@ html {
   width: 100%;
   max-width: 500px;   /* limit max size */
   height: auto;
-  filter: drop-shadow(0px 15px 20px rgba(0,0,0,0.5));
+  filter: drop-shadow(0px 15px 20px var(--tertiary-shade));
   animation: float 6s ease-in-out infinite; /* floating animation */
 }
 
@@ -306,7 +327,7 @@ html {
 #featured h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #fff;
+  color: var(--tertiary-color); /* contrast with gradient background */
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -325,7 +346,7 @@ html {
 
 /* Each bike card */
 .featured-card {
-  background: white;
+  background: var(--secondary-tint);
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
   overflow: hidden;
@@ -338,7 +359,8 @@ html {
 
 .featured-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0px 8px 18px rgba(0,0,0,0.15);
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.702);
+  
 }
 
 /* Slider container */
@@ -354,24 +376,24 @@ html {
   height: 100%;
   object-fit: cover;
 }
-
 /* Slider buttons */
 .slider-container button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: var(--tertiary-color);
   border: none;
-  color: white;
+  color: var(--primary-tint);
   font-size: 1.5rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: 50%;
+  padding: 0.4rem 0.3rem;
+  border-radius: 40%; /* slight rounding for modern look (remove if you want sharp edges) */
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .slider-container button:hover {
-  background: rgba(0,0,0,0.8);
+  background: var(--primary-shade1);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .slider-container button:first-of-type {
@@ -382,22 +404,24 @@ html {
   right: 10px;
 }
 
+
 /* Bike details */
 .bike-details {
   padding: 1rem;
   text-align: left;
+  background-color: var(--primary-tint);
 }
 
 .bike-details h3 {
   margin: 0;
   font-size: 1.3rem;
-  color: #111;
+  color: var(--primary-color);
 }
 
 .bike-details p {
   margin-top: 0.5rem;
   font-size: 0.95rem;
-  color: #555;
+  color: var(--primary-shade2) ;
 }
 
 
@@ -418,30 +442,40 @@ section.p-6 {
 section.p-6 h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #fff; /* contrast with gradient background */
+  color: var(--tertiary-color); /* contrast with gradient background */
   font-weight: bold;
   letter-spacing: 1px;
 }
 
 /* Bike type buttons */
 section.p-6 .flex button {
-  background: #1b263b;
-  color: white;
+  background: var(--primary-shade2);
+  color: var(--secondary-color);
   font-size: 1rem;
   padding: 0.6rem 1.2rem;
-  border-radius: 25px;
+  border-radius: 10%;
   border: none;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-right: .4rem; /* add space between buttons */
+}
+
+/* Remove margin from last button */
+section.p-6 .flex button:last-child {
+  margin-right: 0;
 }
 
 section.p-6 .flex button:hover {
-  background: #415a77;
+  background: var(--primary-shade1);
+  color: var(--primary-tint);
   transform: translateY(-3px);
 }
 
 section.p-6 .flex button.bg-blue-600 {
-  background: #e63946; /* highlight color for active tab */
+  background: var(--tertiary-shade) ; /* highlight color for active tab */
+  transform: translateY(-3px);
+
 }
 
 /* Bikes grid */
@@ -458,9 +492,9 @@ section.p-6 .grid {
 
 /* Bike card */
 section.p-6 .border {
-  background: #fff;
+  background: var(--primary-tint);
   border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0px 4px 12px rgb(0,0,0,0.3);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -468,7 +502,7 @@ section.p-6 .border {
 
 section.p-6 .border:hover {
   transform: translateY(-8px);
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.654);
 }
 
 /* Image slider */
@@ -491,18 +525,19 @@ section.p-6 .relative button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: var(--tertiary-color);
   border: none;
-  color: white;
+  color: var(--primary-tint);
   font-size: 1.5rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: 50%;
+  padding: 0.4rem 0.3rem;
+  border-radius: 40%; /* slight rounding for modern look (remove if you want sharp edges) */
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 section.p-6 .relative button:hover {
-  background: rgba(0,0,0,0.8);
+  background: var(--primary-shade1);
+  transform: translateY(-50%) scale(1.05);
 }
 
 section.p-6 .relative button:first-of-type {
@@ -517,13 +552,13 @@ section.p-6 .relative button:last-of-type {
 section.p-6 h3 {
   margin-top: 1rem;
   font-size: 1.3rem;
-  color: #111;
+  color: var(--primary-color);
   font-weight: 600;
 }
 
 section.p-6 p {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--primary-shade2);
 }
 
 
@@ -547,7 +582,6 @@ section.p-6 p {
 #order {
   padding: 4rem 2rem;
   text-align: center;
-  color: white;
 }
 
 #order h2 {
@@ -555,17 +589,18 @@ section.p-6 p {
   margin-bottom: 2rem;
   font-weight: bold;
   letter-spacing: 1px;
+  color: var(--tertiary-color); 
 }
 
 /* Form container */
 #order .order-form {
   max-width: 800px;
   margin: 0 auto;
-  background: #fff;
+  background: var(--primary-tint);
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-  color: #111;
+  color: #000000;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -575,7 +610,7 @@ section.p-6 p {
 /* Labels & selects/inputs */
 #order label {
   font-weight: 600;
-  color: #333;
+  color: var(--primary-color);
   display: flex;
   flex-direction: column;
   font-size: 1rem;
@@ -583,6 +618,8 @@ section.p-6 p {
 
 #order select,
 #order input {
+  color: var(--primary-shade2);
+  background-color: var(--primary-tint);
   margin-top: 0.5rem;
   padding: 0.6rem 1rem;
   border-radius: 8px;
@@ -594,12 +631,13 @@ section.p-6 p {
 
 #order select:focus,
 #order input:focus {
-  border-color: #e63946;
+    border-color: #e63946;
 }
+
 
 /* Buttons */
 #order .search-button {
-  background: #1b263b;
+  background: var(--tertiary-color);
   color: white;
   font-size: 1rem;
   padding: 0.8rem 1.5rem;
@@ -611,7 +649,7 @@ section.p-6 p {
 }
 
 #order .search-button:hover {
-  background: #415a77;
+  background: var(--tertiary-shade);
   transform: translateY(-3px);
 }
 
@@ -629,7 +667,6 @@ section.p-6 p {
 }
 
 .searched-bikes-grid .bike-card {
-  background: #fff;
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
   overflow: hidden;
@@ -641,14 +678,14 @@ section.p-6 p {
 
 .searched-bikes-grid .bike-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.6);
 }
 
 
 
 .searched-bikes-grid .bike-card.selected {
-  border: 3px solid #1b263bb4;  /* nice red tone matching theme */
-  box-shadow: 0px 8px 24px rgba(230, 57, 70, 0.4); /* glow effect */
+  border: 3px solid var(--primary-shade1);  /* nice red tone matching theme */
+  box-shadow: 0px 8px 24px var(--primary-shade2); /* glow effect */
 }
 
 
@@ -658,7 +695,7 @@ section.p-6 p {
 .searched-bikes-grid .slider-wrapper {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 400px;
   overflow: hidden;
 }
 
@@ -672,14 +709,14 @@ section.p-6 p {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: var(--tertiary-color);
   border: none;
-  color: white;
-  font-size: 1.5rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: 50%;
+  color: var(--primary-tint);
+  font-size: 2rem;
+  padding: 0.2rem 0.9rem;
+  border-radius: 40%; /* slight rounding for modern look (remove if you want sharp edges) */
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .searched-bikes-grid .slider-btn:hover {
@@ -697,13 +734,13 @@ section.p-6 p {
 .searched-bikes-grid h4 {
   margin-top: 0.5rem;
   font-size: 1.2rem;
-  color: #111;
+  color: var(--primary-color);
   font-weight: 600;
 }
 
 .searched-bikes-grid p {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--primary-shade1);
   margin-top: 0.2rem;
 }
 
@@ -720,7 +757,7 @@ section.p-6 p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(13, 27, 42, 0.8); /* darker overlay matching theme */
+  background: var(--modal-overlay-bg); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -729,7 +766,7 @@ section.p-6 p {
 }
 
 .modal-card {
-  background: linear-gradient(135deg, #ffffff, #f9f9f9); /* soft gradient */
+  background: linear-gradient(135deg, var(--primary-tint), var(--primary-color)); /* soft gradient */
   padding: 2.5rem;
   border-radius: 20px;
   max-width: 650px;
@@ -740,41 +777,80 @@ section.p-6 p {
   text-align: center;
 }
 
+.modal-card h3 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--tertiary-color);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
 /* Headings inside modal */
-.modal-card h2 {
+.modal-card h4 {
   font-size: 2rem;
   font-weight: 700;
-  color: #1b263b;
+  color: var(--tertiary-color);
   margin-bottom: 1rem;
   letter-spacing: 0.5px;
 }
 
-.modal-card p {
+.modal-card p { 
   font-size: 1.1rem;
-  color: #555;
+  color: var(--tertiary-shade);
   margin-bottom: 1rem;
 }
 
-/* Image inside modal */
-.modal-card img {
-  max-width: 100%;        /* don’t overflow horizontally */
-  max-height: 300px;      /* ✅ limit image height */
-  width: auto;            /* keep aspect ratio */
-  height: auto;           /* keep aspect ratio */
-  object-fit: contain;    /* fit inside without cropping */
-  border-radius: 12px;
-  margin: 1rem 0;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+.modal-card .bike-image {
+  width: 100%;
+  max-width: 400px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0px 8px 24px var(--primary-shade2);
+  margin-bottom: 1.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.modal-card .slider-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: var(--tertiary-color);
+  border: none;
+  color: var(--primary-tint);
+  font-size: 2.2rem;
+  padding: 0.3rem 1rem;
+  border-radius: 40%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.modal-card .slider-btn.left {
+  left: 10%;
+}
+
+.modal-card .slider-btn.right {
+  right: 10%;
+}
+
+.modal-card .slider-btn:hover {
+  background: var(--primary-shade2);
+  transform: translateY(-50%) scale(1.08);
+}
+
+
 
 /* Close Button */
 .close-btn {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  font-size: 1.8rem;
+  top: 28px;
+  right: 38px;
+  font-size: 2.5rem;
   cursor: pointer;
-  color: #e63946;
+  color: var(--tertiary-shade);
   font-weight: bold;
   transition: transform 0.3s ease, color 0.3s ease;
 }

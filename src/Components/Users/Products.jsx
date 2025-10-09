@@ -86,27 +86,17 @@ function Products({ setIsLoading, language }) {
               {/* Image Slider */}
               {bike.pictures && bike.pictures.length > 0 && (
                 <div className="relative">
+                  <button className="nav-btn prev" onClick={() => handlePrevImage(bike._id, bike.pictures.length)}>
+                    <i className="fas fa-chevron-left"></i>
+                  </button>
                   <img
-                    src={`${API_URL}/${bike.pictures[imageIndexes[bike._id]]}`}
+                    src={`${API_URL}/${bike.pictures[imageIndexes[bike._id]]}`} // ✅ prepend backend URL
                     alt={bike.name}
-                    className="w-full h-48 object-cover rounded-md"
+                    className="bike-image"
                   />
-                  <button
-                    onClick={() =>
-                      handlePrevImage(bike._id, bike.pictures.length)
-                    }
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"
-                  >
-                    {"<"}
-                  </button>
-                  <button
-                    onClick={() =>
-                      handleNextImage(bike._id, bike.pictures.length)
-                    }
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"
-                  >
-                    {">"}
-                  </button>
+              <button className="nav-btn next" onClick={() => handleNextImage(bike._id, bike.pictures.length)}>
+                <i className="fas fa-chevron-right"></i>
+              </button>
                 </div>
               )}
 

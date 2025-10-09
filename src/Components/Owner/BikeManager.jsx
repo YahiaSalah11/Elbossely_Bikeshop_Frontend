@@ -14,6 +14,7 @@ const BikeManager = ({ language }) => {
     specs: "",
     bikeType: "chinese",
     pictures: [],
+    isFeatured: false,
   });
 
   const pasteDropAreaRef = useRef(null);
@@ -102,6 +103,7 @@ const BikeManager = ({ language }) => {
         specs: "",
         bikeType: "chinese",
         pictures: [],
+        isFeatured: false,
       });
     } catch (err) {
       console.error("Error adding bike", err);
@@ -189,6 +191,7 @@ const BikeManager = ({ language }) => {
             setFormData({ ...formData, newOrUsed: e.target.value })
           }
         >
+          
           <option value="new">{language === "en" ? "New" : "جديد"}</option>
           <option value="used">{language === "en" ? "Used" : "مستعمل"}</option>
         </select>
@@ -213,11 +216,23 @@ const BikeManager = ({ language }) => {
           </option>
         </select>
 
+        <select
+          value={formData.isFeatured}
+          onChange={(e) =>
+            setFormData({ ...formData, isFeatured: e.target.value === "true" })
+          }
+        >
+          <option value="false">{language === "en" ? "Regular" : "عادي"}</option>
+          <option value="true">{language === "en" ? "Featured" : "مميز"}</option>
+        </select>
+
         <textarea
           placeholder={language === "en" ? "Specs" : "المواصفات"}
           value={formData.specs}
           onChange={(e) => setFormData({ ...formData, specs: e.target.value })}
         />
+
+
 
         {/* ✅ File Upload + Paste/Drop Area */}
         <div
