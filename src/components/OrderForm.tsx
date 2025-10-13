@@ -27,7 +27,7 @@ export function OrderForm({ selectedBike, onSubmit }: OrderFormProps) {
 
   useEffect(() => {
     if (selectedBike) {
-      setBikeName(selectedBike.name || `${selectedBike.year} ${selectedBike.manufacturer} ${selectedBike.model}`);
+      setBikeName(selectedBike.name || `${selectedBike.manufacturer} ${selectedBike.model} ${selectedBike.year}`);
       setBikeId(selectedBike._id);
     }
   }, [selectedBike]);
@@ -118,17 +118,18 @@ export function OrderForm({ selectedBike, onSubmit }: OrderFormProps) {
             />
           </div>
           
-          <div className="space-y-2">
+            <div className="space-y-2">
             <Label htmlFor="bike">Selected Motorcycle *</Label>
-            <Input
+            <Input 
               id="bike"
               placeholder="Click 'Order Now' on a bike to select"
               value={bikeName}
               onChange={(e) => setBikeName(e.target.value)}
               required
               disabled
+              className="text-black"
             />
-          </div>
+            </div>
           
           <Button type="submit" size="lg" className="w-full" disabled={isSubmitting || !bikeId}>
             {isSubmitting ? (
